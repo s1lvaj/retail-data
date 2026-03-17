@@ -1,8 +1,6 @@
 # Mock Retail-Company Data
 
-Data science and engineering on a mock retail company.
-
-Just a reminder that you may have trouble running pyspark while using a VPN.´
+Data engineering on a mock retail company.
 
 This project uses the Brazilian E‑Commerce Public Dataset by Olist. You can download all the csv files we need directly from github by using:
 
@@ -18,3 +16,5 @@ wget https://raw.githubusercontent.com/olist/work-at-olist-data/master/datasets/
 ```
 
 The csv files are saved in `/data/raw`.
+
+Just a reminder that you may have trouble running pyspark while using a VPN.
