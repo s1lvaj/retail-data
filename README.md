@@ -1,6 +1,51 @@
 # Mock Retail-Company Data
 
-Data engineering on a mock retail company.
+In this repository we build a **batch data pipeline** that ingests messy retail data, processes it, models it, and produces analytics tables. It serves as a reference tool, simulating a real company architecture.
+
+In this project, we try to cover concepts like data lakes, batch pipelines, streaming basics, clusters, distributed compute, SQL transformations, etc.
+
+High-level architecture:
+
+```
+Raw data source
+      ↓
+Ingestion pipeline
+      ↓
+Data Lake (raw / cleaned / curated)
+      ↓
+Transformations
+      ↓
+Warehouse / analytics layer
+      ↓
+Queries / dashboards
+```
+
+## Technologies to Use
+
+The core tools are:
+
+- Python
+- SQL
+- Docker
+- Apache Spark
+- Apache Kafka
+- DuckDB or Postgres
+- Parquet files
+
+## Project Structure
+
+```bash
+retail-data/
+├── data/                  # Datasets
+|   ├── raw/               # Original untouched data (bronze layer)
+|   ├── cleaned/           # Fixed data (silver layer)
+|   └── curated/           # Analytics-ready data (gold layer)
+├── LICENSE                # MIT License
+├── README.md              # General README information
+└── requirements.txt       # External libraries to be installed with Python
+```
+
+## Dataset
 
 This project uses the Brazilian E‑Commerce Public Dataset by Olist. You can download all the csv files we need directly from github by using:
 
