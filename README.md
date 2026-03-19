@@ -40,6 +40,12 @@ retail-data/
 |   ├── raw/               # Original untouched data (bronze layer)
 |   ├── cleaned/           # Fixed data (silver layer)
 |   └── curated/           # Analytics-ready data (gold layer)
+├── scripts/               #
+|   ├── ingest/            #
+|   ├── .../               #
+|   └── .../               #
+├── sql/                   #
+├── pipeline.py            #
 ├── LICENSE                # MIT License
 ├── README.md              # General README information
 └── requirements.txt       # External libraries to be installed with Python
@@ -62,4 +68,32 @@ wget https://raw.githubusercontent.com/olist/work-at-olist-data/master/datasets/
 
 The csv files are saved in `/data/raw`.
 
+## Step 2
+
+ingest.py
+
+## Step 3
+
+silver_transform.py
+
+## Step 4
+
+sql/gold_models.sql
+
+## Step 5
+
+build_gold.py
+
+## Step 6
+
+Distributed Compute Example:
+
+spark_job.py
+
 Just a reminder that you may have trouble running pyspark while using a VPN.
+
+## Step 7
+
+Pipeline Orchestration
+
+pipeline.py
