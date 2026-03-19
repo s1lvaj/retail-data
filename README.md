@@ -92,6 +92,8 @@ spark_job.py
 
 Just a reminder that you may have trouble running pyspark while using a VPN.
 
+(our dataset is small, so pandas is enough, but this is to understand distributed compute, lazy execution, spark transformations)
+
 ## Step 7
 
 Pipeline Orchestration
