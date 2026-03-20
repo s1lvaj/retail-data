@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
-from src.bronze_ingestion import BronzeIngestion
-from src.silver_cleaning import SilverCleaning
-from src.gold_analytics import GoldAnalytics
+from src.spark.bronze_ingestion import BronzeIngestion
+from src.spark.silver_cleaning import SilverCleaning
+from src.spark.gold_analytics import GoldAnalytics
 
 spark = SparkSession.builder.appName("Olist Pipeline").getOrCreate()
 
