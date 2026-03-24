@@ -9,16 +9,21 @@ In this project, we try to cover concepts like data lakes, batch pipelines, stre
 ```bash
 retail-data/
 ├── data/                      # Datasets
-│   ├── raw/                   # Original untouched data (bronze layer)
-│   ├── cleaned/               # Fixed data (silver layer)
-│   └── curated/               # Analytics-ready data (gold layer)
-├── src/
-├── sql/
-├── pipeline.py
+│   └── raw/                   # Original untouched data (bronze layer)
+├── docker/                    # Dockerfile
+├── sql/                       # SQL file
+├── src/                       # Python scripts to be executed
+├── pipeline.py                # Python script which executes the entire pipeline
 ├── LICENSE                    # MIT License
 ├── README.md                  # General README information
 └── requirements.txt           # External libraries to be installed with Python
 ```
+
+During code execution, the following folders will be created:
+
+- `data/bronze` containing the bronze layer, which is the raw data in parquet format.
+- `data/silver` containing the silver layer, with the cleaned data.
+- `data/gold` containing the gold layer, with the curated data, ready for analytics.
 
 ## Dataset
 
