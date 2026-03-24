@@ -4,51 +4,20 @@ In this repository we build a **batch data pipeline** that ingests messy retail 
 
 In this project, we try to cover concepts like data lakes, batch pipelines, streaming basics, clusters, distributed compute, SQL transformations, etc.
 
-High-level architecture:
-
-```
-Raw data source
-      ↓
-Ingestion pipeline
-      ↓
-Data Lake (raw / cleaned / curated)
-      ↓
-Transformations
-      ↓
-Warehouse / analytics layer
-      ↓
-Queries / dashboards
-```
-
-## Technologies to Use
-
-The core tools are:
-
-- Python
-- SQL
-- Docker
-- Apache Spark
-- Apache Kafka
-- DuckDB or Postgres
-- Parquet files
-
 ## Project Structure
 
 ```bash
 retail-data/
-├── data/                  # Datasets
-|   ├── raw/               # Original untouched data (bronze layer)
-|   ├── cleaned/           # Fixed data (silver layer)
-|   └── curated/           # Analytics-ready data (gold layer)
-├── scripts/               #
-|   ├── ingest/            #
-|   ├── .../               #
-|   └── .../               #
-├── sql/                   #
-├── pipeline.py            #
-├── LICENSE                # MIT License
-├── README.md              # General README information
-└── requirements.txt       # External libraries to be installed with Python
+├── data/                      # Datasets
+│   ├── raw/                   # Original untouched data (bronze layer)
+│   ├── cleaned/               # Fixed data (silver layer)
+│   └── curated/               # Analytics-ready data (gold layer)
+├── src/
+├── sql/
+├── pipeline.py
+├── LICENSE                    # MIT License
+├── README.md                  # General README information
+└── requirements.txt           # External libraries to be installed with Python
 ```
 
 ## Dataset
@@ -99,3 +68,23 @@ Just a reminder that you may have trouble running pyspark while using a VPN.
 Pipeline Orchestration
 
 pipeline.py
+
+## How to Use
+
+1. **Clone the Repository**:
+
+    ```bash
+    git clone https://github.com/s1lvaj/retail-data.git
+    ```
+
+2. **Install the Requirements**:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. **Run the Pipeline Script**:
+
+    ```bash
+    python pipeline.py
+    ```

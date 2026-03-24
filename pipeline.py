@@ -7,9 +7,9 @@ def run(step):
 
 
 def main():
-    run("src/ingest/ingest.py")
-    run("src/silver/silver_transform.py")
-    run("src/gold/build_gold.py")
+    run("src/ingest.py")
+    run("src/silver_transform.py")
+    run("src/build_gold.py")
 
 
 if __name__ == "__main__":
