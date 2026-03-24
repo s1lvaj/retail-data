@@ -63,6 +63,8 @@ Just a reminder that you may have trouble running pyspark while using a VPN.
 
 (our dataset is small, so pandas is enough, but this is to understand distributed compute, lazy execution, spark transformations)
 
+Pandas is great for small-scale data and it could be used for out project, but its purpose is to show a scalable prototype, and for that, SQL and PySpark are better.
+
 ## Step 7
 
 Pipeline Orchestration

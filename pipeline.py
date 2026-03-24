@@ -1,16 +1,26 @@
-import subprocess
+from pyspark.sql import SparkSession
+from src.bronze_ingestion import BronzeIngestion
+from src.silver_cleaning import SilverCleaning
+from src.gold_analytics import GoldAnalytics
 
+spark = SparkSession.builder.appName("Olist Pipeline").getOrCreate()
 
-def run(step):
-    print(f"Running: {step}")
-    subprocess.run(["python", step], check=True)
+bronze = BronzeIngestion(spark)
+silver = SilverCleaning(spark)
+gold = GoldAnalytics(spark)
 
+datasets = [
+    "olist_orders_dataset",
+    "olist_order_items_dataset",
+    "olist_customers_dataset",
+    "olist_products_dataset",
+    "olist_order_payments_dataset"
+]
 
-def main():
-    run("src/ingest.py")
-    run("src/silver_transform.py")
-    run("src/build_gold.py")
+for ds in datasets:
+    bronze.ingest_csv(ds)
 
+silver.clean_orders()
+silver.clean_order_items()
 
-if __name__ == "__main__":
-    main()
+gold.build_sales_mart()
