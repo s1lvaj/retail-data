@@ -25,6 +25,12 @@ During code execution, the following folders will be created:
 - `data/silver` containing the silver layer, with the cleaned data.
 - `data/gold` containing the gold layer, with the curated data, ready for analytics.
 
+Data Lakes vs Warehouses vs Lakehouses:
+
+- Data Lake: Raw, unstructured data storage (cheap, flexible).
+- Data Warehouse: Structured, optimized for analytics (fast queries, strict schema).
+- Lakehouse: Hybrid—combines lake flexibility with warehouse performance and structure.
+
 ## Dataset
 
 This project uses the Brazilian E‑Commerce Public Dataset by Olist. You can download all the csv files we need directly from github by using:
