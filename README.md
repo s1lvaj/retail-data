@@ -53,23 +53,28 @@ wget https://raw.githubusercontent.com/olist/work-at-olist-data/master/datasets/
 ## Pipeline Steps
 
 1. Ingestion
+
     `src/bronze_ingestion.py`
     - Loads raw CSV files
     - Converts data into Parquet (Bronze layer)
 
 2. Transformation (Silver)
+
     `src/silver_cleaning.py`
     - Cleans and standardizes datasets
 
 3. Modeling (Gold)
+
     `sql/gold_models.sql`
     - Defines analytics tables using SQL
 
 4. Gold Build
+
     `src/gold_analytics.py`
     - Executes SQL transformations
 
 5. Orchestration
+
     `pipeline.py`
     - Runs the full pipeline end-to-end
 
