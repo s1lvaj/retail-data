@@ -1,29 +1,31 @@
 # Mock Retail-Company Data
 
-In this repository we build a **batch data pipeline** that ingests messy retail data, processes it, models it, and produces analytics tables. It serves as a reference tool, simulating a real company architecture.
+This repository implements a batch data pipeline that ingests raw retail data, processes it through multiple layers, and produces analytics-ready tables.
 
-In this project, we try to cover concepts like data lakes, batch pipelines, streaming basics, clusters, distributed compute, SQL transformations, etc.
+It is designed as a simplified simulation of a real-world data platform, showcasing core data engineering concepts such as data modeling, transformation layers, and pipeline orchestration.
 
 ## Project Structure
 
 ```bash
 retail-data/
 ├── data/                      # Datasets
-│   └── raw/                   # Original untouched data (bronze layer)
-├── docker/                    # Dockerfile
-├── sql/                       # SQL file
-├── src/                       # Python scripts to be executed
-├── pipeline.py                # Python script which executes the entire pipeline
+│   └── raw/                   # Original untouched data
+├── docker/                    # Docker configuration
+├── sql/                       # SQL transformations (gold layer)
+├── src/                       # Python scripts
+├── pipeline.py                # End-to-end pipeline orchestration
 ├── LICENSE                    # MIT License
-├── README.md                  # General README information
-└── requirements.txt           # External libraries to be installed with Python
+├── README.md                  # Project documentation
+└── requirements.txt           # Python dependencies
 ```
 
 During code execution, the following folders will be created:
 
-- `data/bronze` containing the bronze layer, which is the raw data in parquet format.
-- `data/silver` containing the silver layer, with the cleaned data.
-- `data/gold` containing the gold layer, with the curated data, ready for analytics.
+- `data/bronze` containing raw data converted to Parquet.
+- `data/silver` containing cleaned and transformed data.
+- `data/gold` containing curated, analytics-ready tables.
+
+This project follows a multi-layer data architecture, with the bronze, silver and gold layers above mentioned, and it loosely follows a lakehouse-style pipeline, using layered transformations on top of raw data.
 
 Data Lakes vs Warehouses vs Lakehouses:
 
@@ -33,7 +35,9 @@ Data Lakes vs Warehouses vs Lakehouses:
 
 ## Dataset
 
-This project uses the Brazilian E‑Commerce Public Dataset by Olist. You can download all the csv files we need directly from github by using:
+This project uses the Brazilian E‑Commerce Public Dataset by Olist.
+
+Download the required files into `data/raw`:
 
 ```bash
 wget https://raw.githubusercontent.com/olist/work-at-olist-data/master/datasets/olist_orders_dataset.csv -OutFile olist_orders_dataset.csv
@@ -46,41 +50,39 @@ wget https://raw.githubusercontent.com/olist/work-at-olist-data/master/datasets/
 wget https://raw.githubusercontent.com/olist/work-at-olist-data/master/datasets/olist_geolocation_dataset.csv -OutFile olist_geolocation_dataset.csv
 ```
 
-The csv files are saved in `/data/raw`.
+## Pipeline Steps
 
-## Step 2
+1. Ingestion
+    `src/bronze_ingestion.py`
+    - Loads raw CSV files
+    - Converts data into Parquet (Bronze layer)
 
-ingest.py
+2. Transformation (Silver)
+    `src/silver_cleaning.py`
+    - Cleans and standardizes datasets
 
-## Step 3
+3. Modeling (Gold)
+    `sql/gold_models.sql`
+    - Defines analytics tables using SQL
 
-silver_transform.py
+4. Gold Build
+    `src/gold_analytics.py`
+    - Executes SQL transformations
 
-## Step 4
+5. Orchestration
+    `pipeline.py`
+    - Runs the full pipeline end-to-end
 
-sql/gold_models.sql
+## Tech Stack
 
-## Step 5
+- **Python**: Core pipeline logic
+- **SQL**: Data modeling (gold layer)
+- **PySpark**: Distributed processing example
+- **Parquet**: Columnar storage format
 
-build_gold.py
+Pandas would be sufficient for this dataset, but PySpark and SQL are included to demonstrate scalable data engineering patterns.
 
-## Step 6
-
-Distributed Compute Example:
-
-spark_job.py
-
-Just a reminder that you may have trouble running pyspark while using a VPN.
-
-(our dataset is small, so pandas is enough, but this is to understand distributed compute, lazy execution, spark transformations)
-
-Pandas is great for small-scale data and it could be used for out project, but its purpose is to show a scalable prototype, and for that, SQL and PySpark are better.
-
-## Step 7
-
-Pipeline Orchestration
-
-pipeline.py
+Note: PySpark may not run correctly when using a VPN.
 
 ## How to Use
 
