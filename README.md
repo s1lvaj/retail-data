@@ -10,7 +10,6 @@ It is designed as a simplified simulation of a real-world data platform, showcas
 retail-data/
 ├── data/                      # Datasets
 │   └── raw/                   # Original untouched data
-├── docker/                    # Docker configuration
 ├── sql/                       # SQL transformations (gold layer)
 ├── src/                       # Python scripts
 ├── pipeline.py                # End-to-end pipeline orchestration
