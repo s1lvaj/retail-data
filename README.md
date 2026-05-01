@@ -92,7 +92,7 @@ Note: PySpark may not run correctly when using a VPN.
 1. **Clone the Repository**:
 
     ```bash
-    git clone https://github.com/s1lvaj/retail-data.git
+    git clone https://github.com/s1lvaj/data-engineering.git
     ```
 
 2. **Install the Requirements**:
