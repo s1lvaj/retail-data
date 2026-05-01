@@ -13,7 +13,6 @@ retail-data/
 ├── sql/                       # SQL transformations (gold layer)
 ├── src/                       # Python scripts
 ├── pipeline.py                # End-to-end pipeline orchestration
-├── LICENSE                    # MIT License
 ├── README.md                  # Project documentation
 └── requirements.txt           # Python dependencies
 ```
